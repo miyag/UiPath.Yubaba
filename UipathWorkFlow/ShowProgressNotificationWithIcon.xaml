@@ -1,0 +1,89 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ShowNotificationWithIcon" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Title" Type="InArgument(x:String)" />
+    <x:Property Name="in_Message" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProgressRate" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_IconIImagePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1168.66666666667,814</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Windwos_forms_namespace_sample_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OmniPage.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="# 概要&#xA;デスクトップ右下に「進捗率付きの通知ウィンドウ」を表示（（アイコン画像あり）&#xA;&#xA;# 引数&#xA;- in_Title : タイトル&#xA;- in_Message : メッセージ&#xA;- in_ProgressRate : 進捗率（0-100）&#xA;- in_IconIImagePath: アイコン画像ファイルパス&#xA;&#xA;# 注意&#xA;表示されたフォームが他のウィンドウに重なり操作を妨げることがあります。" DisplayName="ShowNotificationWithIcon" sap:VirtualizedContainerService.HintSize="376,619.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="メッセージをログ - 内容をInfoでログにも出力" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;[{0}] {1}  ({2}%)&quot;, in_title, in_Message, in_ProgressRate)]" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Const fontName As String = &quot;Meiryo UI&quot;&#xA;Const fontSize As Int32 = 10&#xA;Const formName As String = &quot;UiPath-DesktopNotification&quot;&#xA;'// ColorTheme：Blue&#xA;'Dim formBackColor As Color = Color.FromArgb(25,118,210)&#xA;'Dim formForeColor As Color  = Color.White&#xA;'// ColorTheme：Black&#xA;Dim formBackColor As Color = Color.Black&#xA;Dim formForeColor As Color  = Color.White&#xA;'// ColorTheme：White&#xA;'Dim formBackColor As Color = Color.White&#xA;'Dim formForeColor As Color  = Color.Black&#xA;'// ColorTheme：Gray&#xA;'Dim formBackColor As Color = Color.Gray&#xA;'Dim formForeColor As Color  = Color.Black&#xA;&#xA;'// Form&#xA;Dim form As Form&#xA;Dim openForm As Boolean = False&#xA;If Application.OpenForms.Count &gt; 0 Then&#xA;&#x9;'// Object Reuse&#xA;&#x9;For i As Integer = 0 To Application.OpenForms.Count -1&#xA;&#x9;&#x9;If Application.OpenForms(i).Name.ToString = formName Then&#xA;&#x9;&#x9;&#x9;form = Application.OpenForms(i)&#xA;&#x9;&#x9;&#x9;Exit For&#xA;&#x9;&#x9;End If&#xA;&#x9;Next&#xA;End If&#xA;If form Is Nothing Then&#xA;&#x9;openForm = True&#xA;&#x9;form = New Form()&#xA;&#x9;With form&#xA;&#x9;&#x9;.Name = formName&#xA;&#x9;&#x9;.StartPosition = FormStartPosition.Manual&#xA;&#x9;&#x9;.Width  = CInt(Screen.PrimaryScreen.WorkingArea.Width * 0.22)&#xA;&#x9;&#x9;.Height = CInt(Screen.PrimaryScreen.WorkingArea.Height * 0.12)&#xA;&#x9;&#x9;.Left = Screen.PrimaryScreen.WorkingArea.Width - .Width - CInt(.Height * 0.1)&#xA;&#x9;&#x9;.Top  = Screen.PrimaryScreen.WorkingArea.Height - .Height - CInt(.Height * 0.1)&#xA;&#x9;&#x9;.Font = New Font(fontName, fontSize, FontStyle.Regular)&#xA;&#x9;&#x9;.BackColor = formBackColor&#xA;&#x9;&#x9;.ForeColor = formForeColor&#xA;&#x9;&#x9;.FormBorderStyle = FormBorderStyle.None&#xA;&#x9;&#x9;.Opacity = 1.0&#xA;&#x9;&#x9;.Padding = New Padding(CInt(.Height * 0.06))&#xA;&#x9;End With&#xA;&#x9;form.Show()&#xA;End If&#xA;'form.BringToFront()&#xA;form.TopMost = True&#xA;form.TopMost = False&#xA;&#xA;'// Panel&#xA;Dim panel As Panel&#xA;If Not(form.Controls(&quot;Panel&quot;) Is Nothing) Then&#xA;&#x9;panel = CType(form.Controls(&quot;Panel&quot;), Panel)&#xA;Else&#xA;&#x9;panel = New Panel()&#xA;&#x9;With panel&#xA;&#x9;&#x9;.Name = &quot;Panel&quot;&#xA;&#x9;&#x9;.Width = CInt(form.Width - form.Padding.Left - form.Padding.Right)&#xA;&#x9;&#x9;.Height = CInt(form.Height - form.Padding.Top - form.Padding.Bottom)&#xA;&#x9;&#x9;.Location = New Point(form.Padding.Right, form.Padding.Bottom)&#xA;&#x9;&#x9;'.panel.BackColor = Color.Beige '// for debug&#xA;&#x9;End With&#xA;&#x9;form.Controls.Add(panel)&#xA;End If&#xA;&#xA;Dim ico As PictureBox&#xA;If Not(panel.Controls(&quot;Picture&quot;) Is Nothing) Then&#xA;&#x9;ico = CType(panel.Controls(&quot;Picture&quot;), PictureBox)&#xA;&#x9;ico.Image = System.Drawing.Image.FromFile(iconPath)&#xA;Else&#xA;&#x9;ico = New PictureBox() &#xA;&#x9;ico.Name = &quot;Picture&quot;&#xA;&#x9;ico.Location = New System.Drawing.Point(0, 0)&#xA;&#x9;ico.Size = New Size(CInt(panel.Height * 0.6), CInt(panel.Height * 0.6))&#xA;&#x9;ico.SizeMode = PictureBoxSizeMode.Zoom&#xA;&#x9;If IO.File.Exists(iconPath) Then&#xA;&#x9;&#x9;ico.Image = System.Drawing.Image.FromFile(iconPath)&#xA;&#x9;End IF&#xA;&#x9;panel.Controls.Add(ico)&#xA;End If&#xA;&#xA;'// Title&#xA;Dim mousePoint As Point&#xA;Dim lb_title As Label&#xA;If Not(panel.Controls(&quot;Title&quot;) Is Nothing) Then&#xA;&#x9;lb_title = CType(panel.Controls(&quot;Title&quot;), Label)&#xA;Else&#xA;&#x9;lb_title = New Label()&#xA;&#x9;With lb_title&#xA;&#x9;&#x9;.Name = &quot;Title&quot;&#xA;&#x9;&#x9;.Size = New Size(CInt(panel.Width - ico.Width), CInt(panel.Height * 0.22))&#xA;&#x9;&#x9;.Location = New System.Drawing.Point(ico.Right, 0)&#xA;&#x9;&#x9;.Font = New Font(fontName, fontSize, FontStyle.Bold)&#xA;&#x9;&#x9;.TextAlign = ContentAlignment.MiddleLeft&#xA;&#x9;&#x9;.Padding = New Padding(5,5,0,0)&#xA;&#x9;&#x9;'.BorderStyle = BorderStyle.FixedSingle '// for debug&#xA;&#x9;End With&#xA;&#x9;'// Move Form Position&#xA;&#x9;AddHandler lb_title.MouseDown, _&#xA;&#x9;&#x9;Sub(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)&#xA;&#x9;&#x9;&#x9;If (e.Button And MouseButtons.Left) = MouseButtons.Left Then&#xA;&#x9;&#x9;&#x9;    mousePoint = New Point(e.X, e.Y)&#xA;&#x9;&#x9;    End If&#xA;&#x9;&#x9;End Sub&#xA;&#x9;AddHandler lb_title.MouseMove, _&#xA;&#x9;&#x9;Sub(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)&#xA;&#x9;&#x9;&#x9;If (e.Button And MouseButtons.Left) = MouseButtons.Left Then&#xA;&#x9;&#x9;&#x9;    form.Location = New Point(form.Location.X + e.X - mousePoint.X, form.Location.Y + e.Y - mousePoint.Y)&#xA;&#x9;&#x9;&#x9;End If&#xA;&#x9;&#x9;End Sub&#xA;&#x9;panel.Controls.Add(lb_title)&#xA;End If&#xA;lb_title.Text = title&#xA;&#xA;'// Close&#xA;If panel.Controls(&quot;Close&quot;) Is Nothing Then&#xA;&#x9;Dim btn_close As Button = New Button() &#xA;&#x9;With btn_close&#xA;&#x9;&#x9;.Name = &quot;Close&quot;&#xA;&#x9;&#x9;.Size = New Size(panel.Width - lb_title.Width, lb_title.Height)&#xA;&#x9;&#x9;.Location = New System.Drawing.Point(lb_title.Right, lb_title.Top)&#xA;&#x9;&#x9;.Padding = New Padding(0,0,0,0)&#xA;&#x9;&#x9;.FlatStyle = FlatStyle.Flat&#xA;&#x9;&#x9;.FlatAppearance.BorderSize = 0&#xA;&#x9;&#x9;.Text = &quot;×&quot;&#xA;&#x9;&#x9;.TextAlign = ContentAlignment.MiddleCenter&#xA;&#x9;End With&#xA;&#x9;panel.Controls.Add(btn_close)&#xA;&#x9;AddHandler btn_close.Click, _&#xA;&#x9;&#x9;Sub(ByVal sender As Object, ByVal e As EventArgs)&#xA;&#x9;&#x9;&#x9;form.Close&#xA;&#x9;&#x9;&#x9;form.Dispose&#xA;&#x9;&#x9;End Sub&#xA;End If&#xA;&#xA;'// Message&#xA;Dim lb_message As Label&#xA;If Not(panel.Controls(&quot;Message&quot;) Is Nothing) Then&#xA;&#x9;lb_message = CType(panel.Controls(&quot;Message&quot;), Label)&#xA;Else&#xA;&#x9;lb_message = New Label()&#xA;&#x9;With lb_message&#xA;&#x9;&#x9;.Name = &quot;Message&quot;&#xA;&#x9;&#x9;.Size = New Size(panel.Width - ico.Width, CInt(panel.Height * 0.57))&#xA;&#x9;&#x9;.Location = New System.Drawing.Point(lb_title.Left, lb_title.Bottom)&#xA;&#x9;&#x9;.TextAlign = ContentAlignment.MiddleLeft&#xA;&#x9;&#x9;.Padding = New Padding(5, 5, 0, 0)&#xA;&#x9;&#x9;'.BorderStyle = BorderStyle.FixedSingle '// for debug&#xA;&#x9;End With&#xA;&#x9;panel.Controls.Add(lb_message)&#xA;End If&#xA;lb_message.Text = message&#xA;&#xA;'// Datetime&#xA;Dim lb_dtime As Label&#xA;If Not(panel.Controls(&quot;Datetime&quot;) Is Nothing) Then&#xA;&#x9;lb_dtime = CType(panel.Controls(&quot;Datetime&quot;), Label)&#xA;Else&#xA;&#x9;lb_dtime = New Label()&#xA;&#x9;With lb_dtime&#xA;&#x9;&#x9;.Name = &quot;Datetime&quot;&#xA;&#x9;&#x9;.Size = New Size(CInt(lb_title.Width * 0.20), panel.Height - lb_title.Height - lb_message.Height)&#xA;&#x9;&#x9;.Location = New System.Drawing.Point(lb_message.Right - .Width, lb_message.Bottom)&#xA;&#x9;&#x9;.TextAlign = ContentAlignment.MiddleCenter&#xA;&#x9;&#x9;.Font = New Font(fontName, fontSize - 2, FontStyle.Regular)&#xA;&#x9;&#x9;.Padding = New Padding(0,0,0,0)&#xA;&#x9;&#x9;'.BorderStyle = BorderStyle.FixedSingle '// for debug&#xA;&#x9;End With&#xA;&#x9;panel.Controls.Add(lb_dtime)&#xA;End If&#xA;lb_dtime.Text = DateTime.Now.ToString(&quot;HH:mm:ss&quot;)&#xA;&#xA;'// ProgressLabel&#xA;Dim lb_pgs As Label&#xA;If Not(panel.Controls(&quot;ProgressLabel&quot;) Is Nothing) Then&#xA;&#x9;lb_pgs = CType(panel.Controls(&quot;ProgressLabel&quot;), Label)&#xA;Else&#xA;&#x9;lb_pgs = New Label() &#xA;&#x9;With lb_pgs&#xA;&#x9;&#x9;.Name = &quot;ProgressLabel&quot;&#xA;&#x9;&#x9;.Size = New Size(CInt(lb_title.Width * 0.15), panel.Height - lb_title.Height - lb_message.Height)&#xA;&#x9;&#x9;.Location = New System.Drawing.Point(lb_dtime.Left -lb_pgs.Width , lb_dtime.top)&#xA;&#x9;&#x9;.Font = New Font(fontName, fontSize - 2, FontStyle.Regular)&#xA;&#x9;&#x9;.TextAlign = ContentAlignment.MiddleCenter&#xA;&#x9;&#x9;'.BorderStyle = BorderStyle.FixedSingle '// for debug&#xA;&#x9;End With&#xA;&#x9;panel.Controls.Add(lb_pgs)&#xA;End If&#xA;lb_pgs.Text = progressRate &amp; &quot;%&quot;&#xA;lb_pgs.Visible = displayProgress&#xA;&#xA;'// ProgressBar&#xA;Dim pgsBar As ProgressBar&#xA;If Not(panel.Controls(&quot;ProgressBar&quot;) Is Nothing) Then&#xA;&#x9;pgsBar = CType(panel.Controls(&quot;ProgressBar&quot;), ProgressBar)&#xA;Else&#xA;&#x9;pgsBar = New ProgressBar()&#xA;&#x9;With pgsBar&#xA;&#x9;&#x9;.Name = &quot;ProgressBar&quot;&#xA;&#x9;&#x9;.Size = New Size(CInt(lb_title.Width * 0.65), CInt(lb_dtime.Height * 0.4))&#xA;&#x9;&#x9;.Location = New System.Drawing.Point(lb_message.Left, lb_message.Bottom + CInt(lb_dtime.Height * 0.4))&#xA;&#x9;&#x9;.Minimum = 0&#xA;&#x9;&#x9;.Maximum = 100&#xA;&#x9;End With&#xA;&#x9;panel.Controls.Add(pgsBar)&#xA;End If&#xA;pgsBar.Value = progressRate&#xA;pgsBar.Visible = displayProgress&#xA;&#xA;'// Update&#xA;panel.Update()&#xA;form.Update()&#xA;form.Refresh()&#xA;&#xA;'// Close&#xA;If formClose Then&#xA;&#x9;form.Close()&#xA;&#x9;form.Dispose()&#xA;End If" DisplayName="コードを呼び出し - フォームを表示" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="title">[in_Title]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="formClose">False</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="message">[in_Message]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="progressRate">[in_ProgressRate]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="displayProgress">True</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="iconPath">[In_IconIImagePath]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+  </Sequence>
+</Activity>
